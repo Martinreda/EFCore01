@@ -1,4 +1,6 @@
-﻿namespace Demo
+﻿using Demo.Context;
+
+namespace Demo
 {
     internal class Program
     {
@@ -32,6 +34,7 @@
 
             #endregion
 
+
             #region Dapper
 
             /*
@@ -46,6 +49,34 @@
              * - Micro ORM
              * - Limited Features
              */
+
+            #endregion
+
+            #region DbContext
+
+            //CompanyDBcontext dBcontext = new CompanyDBcontext();
+            //open Connection With DataBase 
+
+            //close Connection
+            //try
+            //{
+
+
+            //}
+            //finally
+            //{
+            //    dBcontext.Dispose();
+            //}
+
+           using CompanyDBcontext dBcontext = new CompanyDBcontext();
+
+            // لتطبيق الـ Migrations
+            // لازم تنزل الباكدج دي:
+            // Microsoft.EntityFrameworkCore.Tools
+
+
+            //to applAy database in sql server
+            // update daatabase
 
             #endregion
 
