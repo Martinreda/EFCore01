@@ -28,5 +28,6 @@ namespace Demo.Context
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 
         public DbSet<Employee>Employees { get; set; } 
+        public DbSet<User>Users { get; set; } 
     }
 }
