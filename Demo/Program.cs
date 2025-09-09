@@ -1,4 +1,6 @@
 ﻿using Demo.Context;
+using Demo.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo
 {
@@ -69,7 +71,7 @@ namespace Demo
             //    dBcontext.Dispose();
             //}
 
-            using CompanyDBcontext dBcontext = new CompanyDBcontext();
+            //using CompanyDBcontext dBcontext = new CompanyDBcontext();
 
             // لتطبيق الـ Migrations
             // لازم تنزل الباكدج دي:
@@ -84,7 +86,44 @@ namespace Demo
 
             #region Session 02 
 
+            #region Query object Model 
+            //To add Data in Databse 
+            //Connect With databas 
+            using CompanyDBcontext dBcontext = new CompanyDBcontext();
+            Employee emp01 = new Employee()
+            {
+                /*id = 1*/ 
+                Name = "martin",
+                salary = 20000,
+                Age = 20 
 
+            };
+            Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); //Detatched
+
+            //Add Emp01 to table emp in dadtabase
+            //01
+            dBcontext.Employees.Add(emp01);
+
+            ////02
+            //dBcontext.Set<Employee>().Add(emp01);
+
+            ////03
+            //dBcontext.Add(emp01);
+
+            Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); /*Auto Trucker*/
+            //Save changes --- Apply Databas 
+
+            try
+            {
+                dBcontext.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("DbUpdateException: " + ex.Message);
+                Console.WriteLine("InnerException: " + ex.InnerException?.Message);
+            }
+
+            #endregion
             #endregion
         }
     }
