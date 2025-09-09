@@ -6,6 +6,7 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            #region Session01
             #region Entity Framework Core
 
             /*
@@ -68,7 +69,7 @@ namespace Demo
             //    dBcontext.Dispose();
             //}
 
-           using CompanyDBcontext dBcontext = new CompanyDBcontext();
+            using CompanyDBcontext dBcontext = new CompanyDBcontext();
 
             // لتطبيق الـ Migrations
             // لازم تنزل الباكدج دي:
@@ -79,7 +80,12 @@ namespace Demo
             // update daatabase
 
             #endregion
+            #endregion
 
+            #region Session 02 
+
+
+            #endregion
         }
     }
 }

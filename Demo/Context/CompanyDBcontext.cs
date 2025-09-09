@@ -25,6 +25,47 @@ namespace Demo.Context
             optionsBuilder.UseSqlServer("Server = . ; Database = MyCompany02; Trusted_Connection = true ; TrustServerCertificate = true");
 
         }
+
+        #region Fluent APIS
+        // Apply mapping with fluent APIS you must Ovverride (on MOdel)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Employee>().HasKey(E => E.id);
+            //// Constrain For PK 
+            ////modelBuilder.Entity<Employee>().Property(E => E.id)
+            ////    .UseIdentityColumn(10 , 10); //Add constrain 
+
+            //////Deny Constrain 
+            ////modelBuilder.Entity<Employee>()
+            ////    .Property(E => E.id)
+            ////    .ValueGeneratedNever();
+
+            //modelBuilder.Entity<Employee>().Property(E => E.Name)
+            //    .HasColumnName("Emp_Name")
+            //    .HasColumnType("varchar (50)")
+            //    .HasMaxLength(50)
+            //    .IsRequired(false); // Not allow null
+            //// By defult == True Donnot allow null
+
+
+
+            // another Way 
+
+            modelBuilder.Entity<Employee>(E =>
+            {
+                E.HasKey(E => E.id);
+                E.Property(E => E.Name)
+                .HasColumnName("Emp_Name")
+                .HasColumnType("varchar (50)")
+                .HasMaxLength(50)
+                .IsRequired(false);
+
+                E.Property(E => E.salary).
+                HasDefaultValue(80000);
+
+            });
+        }
+        #endregion
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 
         public DbSet<Employee>Employees { get; set; } 

@@ -10,11 +10,9 @@ namespace Demo.Model
     internal class Employee
     {
         public int id { get; set; }
-        //Primary key
-        //Mapping by convntion --
-        //Public Numeric Prop 
+        
         public string? Name { get; set; }
-        //Mapped to NvarCharacter of max
+        
         public decimal salary { get; set; }
         public int Age { get; set; }
     }
