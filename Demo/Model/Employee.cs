@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,16 @@ namespace Demo.Model
         
         public decimal salary { get; set; }
         public int Age { get; set; }
+
+        //Navigational  Prop 
+        //Represnt relationship of 1   to    1
+        //EfF Core By Convention => Department has one Employee To Manage it 
+
+        public Department DeptManger { get; set; } //Navigational  Prop 
+
+        //FK 
+        [ForeignKey (nameof (DeptManger))]
+        public int MangerDeptId { get; set; }
+
     }
 }
