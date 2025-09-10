@@ -90,38 +90,81 @@ namespace Demo
             //To add Data in Databse 
             //Connect With databas 
             using CompanyDBcontext dBcontext = new CompanyDBcontext();
-            Employee emp01 = new Employee()
-            {
-                /*id = 1*/ 
-                Name = "martin",
-                salary = 20000,
-                Age = 20 
+            #region Add New Rec
+            //Employee emp01 = new Employee()
+            //{
+            //    /*id = 1*/ 
+            //    Name = "martin",
+            //    salary = 20000,
+            //    Age = 20 
 
-            };
-            Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); //Detatched
+            //};
+            //Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); //Detatched
 
-            //Add Emp01 to table emp in dadtabase
-            //01
-            dBcontext.Employees.Add(emp01);
+            ////Add Emp01 to table emp in dadtabase
+            ////01
+            //dBcontext.Employees.Add(emp01);
 
-            ////02
-            //dBcontext.Set<Employee>().Add(emp01);
+            //////02
+            ////dBcontext.Set<Employee>().Add(emp01);
 
-            ////03
-            //dBcontext.Add(emp01);
+            //////03
+            ////dBcontext.Add(emp01);
 
-            Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); /*Auto Trucker*/
-            //Save changes --- Apply Databas 
+            //Console.WriteLine(dBcontext.Entry<Employee>(emp01).State); /*Auto Trucker*/
+            ////Save changes --- Apply Databas 
 
-            try
-            {
-                dBcontext.SaveChanges();
-            }
-            catch (DbUpdateException ex)
-            {
-                Console.WriteLine("DbUpdateException: " + ex.Message);
-                Console.WriteLine("InnerException: " + ex.InnerException?.Message);
-            }
+            //try
+            //{
+            //    dBcontext.SaveChanges();
+            //}
+            //catch (DbUpdateException ex)
+            //{
+            //    Console.WriteLine("DbUpdateException: " + ex.Message);
+            //    Console.WriteLine("InnerException: " + ex.InnerException?.Message);
+            //}
+
+            #endregion
+
+            #region Select --- Get Data From Table 
+            //var result = dBcontext.Employees.Where(E => E.id == 1).FirstOrDefault();
+            //if (result is not null)
+            //{
+            //    Console.WriteLine($"Id = {result.id} \n Name = {result.Name}");
+
+            //}
+
+            #endregion
+            #region Update 
+            //var result = dBcontext.Employees.FirstOrDefault(E => E.id == 1);
+            //if (result is not null)
+            //{
+            //    result.Name = "Mena";
+            //    Console.WriteLine($"Id = {result.id} \n Name = {result.Name}");
+
+            //}
+            //dBcontext.SaveChanges();
+            #endregion
+
+            #region Remove Data From Table - Delete
+
+            //// هجيب الموظف اللي الـ Id بتاعه = 3
+            //var emp01 = dBcontext.Employees.FirstOrDefault(E => E.id == 3);
+
+            //if (emp01 != null)
+            //{
+            //    // في طريقتين ينفع تستخدم أي واحدة فيهم
+            //    // dbContext.Employees.Remove(emp01);
+            //    dBcontext.Remove(emp01);
+
+            //    // الحالة هتكون Deleted
+            //    Console.WriteLine(dBcontext.Entry<Employee>(emp01).State);
+
+            //    // هيطبق التغيير على قاعدة البيانات
+            //    dBcontext.SaveChanges();
+            //}
+
+            #endregion
 
             #endregion
             #endregion
