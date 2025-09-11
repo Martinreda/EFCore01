@@ -21,11 +21,14 @@ namespace Demo.Model
         //Represnt relationship of 1   to    1
         //EfF Core By Convention => Department has one Employee To Manage it 
 
-        public Department DeptManger { get; set; } //Navigational  Prop 
+        //public Department DeptManger { get; set; } //Navigational  Prop 
 
-        //FK 
-        [ForeignKey (nameof (DeptManger))]
-        public int MangerDeptId { get; set; }
+        ////FK 
+        //[ForeignKey (nameof (DeptManger))]
+        //public int MangerDeptId { get; set; }
+
+       
+        public Department MangedDept { get; set; } // Naav Prop 
 
     }
 }

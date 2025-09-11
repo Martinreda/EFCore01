@@ -71,6 +71,11 @@ namespace Demo.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            modelBuilder.Entity<Employee>()
+                .HasOne(E => E.MangedDept)
+                .WithOne(E=> E.Manger)
+                .HasForeignKey<Department>(D=> D.MangerId);
         }
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 

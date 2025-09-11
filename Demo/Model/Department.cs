@@ -17,6 +17,10 @@ namespace Demo.Model
         public string? DeptName { get; set; }
 
         //Nav prop
-        public Employee? Manger { get; set; } // ? Partial RElationship
+        //    public Employee? Manger { get; set; } // ? Partial RElationship
+        public Employee Manger { get; set; } // Naav Prop 
+        //FK Here
+        public int MangerId { get; set; }
+
     }
 }
