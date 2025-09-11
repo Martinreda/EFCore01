@@ -30,5 +30,9 @@ namespace Demo.Model
        
         public Department MangedDept { get; set; } // Naav Prop 
 
+        //one to one t -- t
+        public Address EmpAddress { get; set; }
+
+
     }
 }

@@ -25,6 +25,9 @@ namespace Demo.ModelsCofigruiton
                 .HasColumnType("varchar (50)")
                 .HasMaxLength(40)
                 .IsRequired(false);
+
+            //one to one t   t 
+            builder.OwnsOne(E => E.EmpAddress, Address => Address.WithOwner());
         }
     }
 }

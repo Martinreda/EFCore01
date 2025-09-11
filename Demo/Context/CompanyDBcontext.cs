@@ -76,10 +76,13 @@ namespace Demo.Context
                 .HasOne(E => E.MangedDept)
                 .WithOne(E=> E.Manger)
                 .HasForeignKey<Department>(D=> D.MangerId);
+
+           
         }
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 
         public DbSet<Employee>Employees { get; set; } 
         public DbSet<User>Users { get; set; } 
+        public DbSet<Department> departments { get; set;  }
     }
 }
