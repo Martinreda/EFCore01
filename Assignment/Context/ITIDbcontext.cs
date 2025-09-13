@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Assignment.Models;
@@ -17,7 +19,22 @@ namespace Assignment.Context
         {
             optionsBuilder.UseSqlServer("Server=.;Database=ITI02;Trusted_Connection=True;TrustServerCertificate=True;");
         }
-       public DbSet<Course> courses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+    //        modelBuilder.Entity<Student>().HasKey(E=> E.Id);
+
+    //        modelBuilder.Entity<Course_Inst>()
+    //         .HasKey(ci => new { ci.Course_ID, ci.inst_Id });
+
+    //        modelBuilder.Entity<Stud_Course>()
+    //.HasKey(sc => new { sc.Course_Id, sc.Stud_Id });
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            //base.OnModelCreating(modelBuilder);
+
+        }
+        public DbSet<Course> courses { get; set; }
        public DbSet<Course_Inst> course_Insts { get; set; }
        public DbSet<Department> departments { get; set; }
        public DbSet<Instructor> instructors { get; set; }
