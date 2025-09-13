@@ -1,4 +1,6 @@
 ﻿using Assignment.Context;
+using Assignment.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment
 {
@@ -8,10 +10,45 @@ namespace Assignment
         {
             using ITIDbcontext dbcontext = new ITIDbcontext();
 
-            //02 Add Migrition
-            //01Add-Migration InitialCreate -context "ITIDbcontext"
+            //Change Tracker
+            dbcontext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll; // Defualt 
+
+            #region Student Table 
+
+            //Student student01 = new Student()
+            //{
+            //    FName = "Martin",
+            //    LName = "reda",
+            //    Address = "Maghagha",
+            //    Age = 26
+            //};
+
+            //Console.WriteLine(dbcontext.Entry(student01).State);
+
+            ////Add to database 
+
+            //dbcontext.students.Add(student01);
+
+            //Console.WriteLine(dbcontext.Entry(student01).State);
+
+            //// add realy to database use save changes 
+            //dbcontext.SaveChanges();
+            #endregion
+
+            #region Read Using LinkQ 
+            //var student = dbcontext.students.FirstOrDefault(E => E.Id == 1);
+            //if (student is not null)
+            //{
+            //    Console.WriteLine(dbcontext.Entry(student).State);
+            //    Console.WriteLine($"{student.FName}");
+            //}
+            #endregion
+
+                //02 Add Migrition
+                //01Add-Migration InitialCreate -context "ITIDbcontext" 
+                // Create Classes (Tables) 
+                // Appliy Configrautions 
 
         }
     }
 }
- 

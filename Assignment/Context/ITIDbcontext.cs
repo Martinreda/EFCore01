@@ -22,14 +22,7 @@ namespace Assignment.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-    //        modelBuilder.Entity<Student>().HasKey(E=> E.Id);
-
-    //        modelBuilder.Entity<Course_Inst>()
-    //         .HasKey(ci => new { ci.Course_ID, ci.inst_Id });
-
-    //        modelBuilder.Entity<Stud_Course>()
-    //.HasKey(sc => new { sc.Course_Id, sc.Stud_Id });
-
+   
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             //base.OnModelCreating(modelBuilder);
 

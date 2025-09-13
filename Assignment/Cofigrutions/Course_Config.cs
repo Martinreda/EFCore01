@@ -13,7 +13,7 @@ namespace Assignment.Cofigrutions
     {
         public void Configure(EntityTypeBuilder<Course> builder)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
