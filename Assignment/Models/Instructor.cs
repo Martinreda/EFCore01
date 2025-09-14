@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,20 @@ namespace Assignment.Models
         public double salary { get; set; }
         public string Address { get; set; }
         public double HourRate { get; set; }
-        public int DeptId { get; set; }
+
+        //relations 
+        [InverseProperty(nameof (Department.manger))]
+        public Department MangeDepartment { get; set; }
+        
+
+
+       
+        [ForeignKey(nameof(WorkForDept))]
+        public int? DepartmentId { get; set; }
+
+        [InverseProperty(nameof(Department.instructors))]
+        public Department WorkForDept { get; set; } //Nav prop
+
+        public ICollection<Course_Inst> course_Insts { get; set; } = new HashSet<Course_Inst>();
     }
 }

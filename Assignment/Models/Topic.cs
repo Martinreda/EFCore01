@@ -10,5 +10,8 @@ namespace Assignment.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        //Relation 
+        public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
+
     }
 }
