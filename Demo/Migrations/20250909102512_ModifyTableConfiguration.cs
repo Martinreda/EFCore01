@@ -19,7 +19,7 @@ namespace Demo.Migrations
                 name: "EmpName",
                 table: "Employees",
                 type: "varchar(50)",
-                maxLength: 40,
+                maxLength: 50,
                 nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",

@@ -83,13 +83,13 @@ namespace Demo
 
             #endregion
             #endregion
-
+            using CompanyDBcontext dBcontext = new CompanyDBcontext();
             #region Session 02 
 
             #region Query object Model 
             //To add Data in Databse 
             //Connect With databas 
-            using CompanyDBcontext dBcontext = new CompanyDBcontext();
+
             #region Add New Rec
             //Employee emp01 = new Employee()
             //{
@@ -172,7 +172,11 @@ namespace Demo
 
 
 
-            #endregion 
+            #endregion
+
+            #endregion
+
+            #region Session 03 
 
             #endregion
         }

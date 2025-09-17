@@ -27,11 +27,21 @@ namespace Demo.Model
         //[ForeignKey (nameof (DeptManger))]
         //public int MangerDeptId { get; set; }
 
-       
+        [InverseProperty(nameof(Department.Manger))]
         public Department MangedDept { get; set; } // Naav Prop 
 
         //one to one t -- t
         public Address EmpAddress { get; set; }
+
+        // One to many 
+
+        //FK 
+        [ForeignKey(nameof(DeptId))]
+        public int DeptId { get; set; }
+
+         
+        [InverseProperty(nameof(Department.employees))] // Inverse Prop
+        public Department department { get; set; }  // Nav prop
 
 
     }

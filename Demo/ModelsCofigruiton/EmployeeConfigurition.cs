@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,11 +24,21 @@ namespace Demo.ModelsCofigruiton
             builder.Property(E => E.Name)
                 .HasColumnName("EmpName")
                 .HasColumnType("varchar (50)")
-                .HasMaxLength(40)
+                .HasMaxLength(50)
                 .IsRequired(false);
+
+            builder.Property(e => e.salary)
+              .HasColumnType("decimal(18,2)");
 
             //one to one t   t 
             builder.OwnsOne(E => E.EmpAddress, Address => Address.WithOwner());
+
+            // one to Many 
+            builder
+               .HasOne(E => E.department)
+               .WithMany(D => D.employees)
+               .HasForeignKey(E => E.DeptId)
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
