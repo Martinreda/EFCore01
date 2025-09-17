@@ -13,7 +13,7 @@ namespace Assignment.Cofigrutions
     {
         public void Configure(EntityTypeBuilder<Stud_Course> builder)
         {
-               builder.HasKey(sc => new { sc.Course_Id, sc.Stud_Id });
+               
         }
     }
 }

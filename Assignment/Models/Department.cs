@@ -18,9 +18,12 @@ namespace Assignment.Models
 
         //relation 
         public ICollection<Student> students { get; set; } = new HashSet<Student>();
+
         [ForeignKey (nameof(manger))]
         public int? mangerId { get; set; }
         public Instructor manger { get; set; }
+
+
         [InverseProperty (nameof (Instructor.WorkForDept))]
         public ICollection<Instructor> instructors { get; set; } = new HashSet<Instructor>();
 
