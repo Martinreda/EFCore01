@@ -81,7 +81,7 @@ namespace Demo.Context
                 .HasForeignKey<Department>(D=> D.MangerId)
             .OnDelete(DeleteBehavior.Restrict);
 
-   
+
 
             #region One TO many 
             // From Employee 
@@ -92,6 +92,14 @@ namespace Demo.Context
             //    .HasForeignKey(E => E.DeptId);
             #endregion
 
+            #region Many to Many 
+            modelBuilder.Entity<Student>()
+                .HasMany(C => C.Courses)
+                .WithMany(E => E.Students)
+                .UsingEntity<Stu_Course>()
+                .HasKey(SC=> new { SC.CourseId,SC.StudentId});
+            #endregion
+
         }
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 
@@ -99,7 +107,8 @@ namespace Demo.Context
         public DbSet<User>Users { get; set; }
         public DbSet<Department> Departments { get; set; }
         
-
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Student> Students { get; set; }
        
     }
 }
