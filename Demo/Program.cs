@@ -8,6 +8,8 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            using CompanyDBcontext dBcontext = new CompanyDBcontext();
+
             #region Session01
             #region Entity Framework Core
 
@@ -83,7 +85,7 @@ namespace Demo
 
             #endregion
             #endregion
-            using CompanyDBcontext dBcontext = new CompanyDBcontext();
+
             #region Session 02 
 
             #region Query object Model 
@@ -177,7 +179,44 @@ namespace Demo
             #endregion
 
             #region Session 03 
+            #region Data Seed 
+            // If you want enter data in Database you have 3 ways
+            /*
+             * 1- Manual Data Seeding
+             * 2-Migration Data Seedin
+             * 3-Dynamic Data Seeding 
+             */
 
+            #region Manual Data Seeding 
+            //Department Dept01 = new Department()
+            //{
+            //    DeptName = "HR"
+            //};
+
+            //dBcontext.Add(Dept01);
+            //dBcontext.SaveChanges();
+
+
+            //List<Department> departments = new List<Department>()
+            //{
+            //    new Department () {DeptName="IT"},
+            //    new Department () {DeptName="Cs"},
+            //    new Department () {DeptName="DEv"},
+            //    new Department () {DeptName="SEc"},
+            //};
+            //dBcontext.AddRange(departments);
+            //dBcontext.SaveChanges();
+
+
+            #endregion
+
+            #region Migration Data Seeding
+            //use On Model Creating at DbContext Class 
+            //Not Commen
+            //Insert Data and Add Migration 
+
+            #endregion
+            #endregion
             #endregion
         }
     }

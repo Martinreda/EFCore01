@@ -100,6 +100,15 @@ namespace Demo.Context
                 .HasKey(SC=> new { SC.CourseId,SC.StudentId});
             #endregion
 
+            #region Seeding Data By Migration 
+            //modelBuilder.Entity<Department>()
+            //    .HasData
+            //    (
+            //             new Department() {DeptId=8, DeptName = "SoftWare" },
+            //             new Department() {DeptId=9, DeptName = "Markting" }
+            //    );
+            #endregion
+
         }
         //if you want a model turned into Table in DataBase
         // You must use Dbset<> 

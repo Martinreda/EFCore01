@@ -21,7 +21,7 @@ namespace Demo.Model
         [InverseProperty(nameof(Employee.MangedDept))]
         public Employee Manger { get; set; } // Naav Prop 
         //FK Here
-        public int MangerId { get; set; }
+        public int? MangerId { get; set; }
 
         //One to many 
         [InverseProperty(nameof(Employee.department))] // دي بتخلي تفهم انها تقصد العلاقه دي 
