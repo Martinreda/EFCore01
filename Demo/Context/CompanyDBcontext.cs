@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Context
 {
-    internal class CompanyDBcontext : DbContext
+    public class CompanyDBcontext : DbContext
     {
         //when you create new class as new Dbcintext
         //you must downloald this Pakage=> Microsoft.EntityFrameWork.sqlserver

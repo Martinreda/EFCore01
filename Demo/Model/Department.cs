@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Model
 {
-    internal class Department
+    public class Department
     {
         [Key]
         public int DeptId { get; set; }

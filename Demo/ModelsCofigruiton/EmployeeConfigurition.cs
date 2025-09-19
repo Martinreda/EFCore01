@@ -17,8 +17,8 @@ namespace Demo.ModelsCofigruiton
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
             //Assign Fluent APIS 
-            builder.HasKey(E => E.id); //PK
-            builder.Property(E => E.id)
+            builder.HasKey(E => E.Id); //PK
+            builder.Property(E => E.Id)
                 .UseIdentityColumn(1, 1);
 
             builder.Property(E => E.Name)
@@ -27,7 +27,7 @@ namespace Demo.ModelsCofigruiton
                 .HasMaxLength(50)
                 .IsRequired(false);
 
-            builder.Property(e => e.salary)
+            builder.Property(e => e.Salary)
               .HasColumnType("decimal(18,2)");
 
             //one to one t   t 

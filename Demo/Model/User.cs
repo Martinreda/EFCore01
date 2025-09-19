@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Demo.Model
 {
     [Table ("usersTable")]
-    internal class User
+    public class User
     {
         [Key]
         public int SSN { get; set; } // SSn PK with constrain (1,1)

@@ -216,6 +216,13 @@ namespace Demo
             //Insert Data and Add Migration 
 
             #endregion
+            #region Dynamic Data Seeding 
+            bool Flag = CompanyDbcontextSeed.Seed(dBcontext);
+            if (Flag)
+                Console.WriteLine("Data Seed Done ");
+            else
+                Console.WriteLine( "Falied");
+            #endregion
             #endregion
             #endregion
         }

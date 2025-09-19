@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace Demo.Model
 {
     //Model == enttity == domain entity :poco class
-    internal class Employee
+    public class Employee
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         
         public string? Name { get; set; }
         
-        public decimal salary { get; set; }
+        public decimal Salary { get; set; }
         public int Age { get; set; }
 
         //Navigational  Prop 
