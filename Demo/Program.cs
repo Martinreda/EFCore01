@@ -239,6 +239,29 @@ namespace Demo
             //Console.WriteLine($"Deptid : {Emp01.DeptId}");
             //Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");
             #endregion
+            #region Explicit Loading 
+            #region EX01 Referance
+            //var Emp01 = dBcontext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (Emp01 is not null)
+            //    Console.WriteLine($"EmpName : {Emp01.Name}");
+            //Console.WriteLine($"Deptid : {Emp01.DeptId}");
+            //dBcontext.Entry(Emp01).Reference(E => E.EmployeeDepartment).Load();
+            //// Referance Method allow with one Nav prop
+            //Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");
+
+            #endregion 
+            #region Ex02 Collection
+            //var Emp01 = dBcontext.Departments.FirstOrDefault(E => E.DeptId == 3);
+            //if (Emp01 is not null)
+            //    Console.WriteLine($"EmpName : {Emp01.DeptName}");
+
+            ////Explicit Loading
+            //dBcontext.Entry(Emp01).Collection(E => E.employees).Query().Where(E=> E.Age > 25).Load();
+            //foreach (var item in Emp01.employees)
+            //    Console.WriteLine( item.Name);
+            #endregion
+
+            #endregion
             #endregion
             #endregion
         }
