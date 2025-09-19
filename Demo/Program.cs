@@ -217,11 +217,27 @@ namespace Demo
 
             #endregion
             #region Dynamic Data Seeding 
-            bool Flag = CompanyDbcontextSeed.Seed(dBcontext);
-            if (Flag)
-                Console.WriteLine("Data Seed Done ");
-            else
-                Console.WriteLine( "Falied");
+            //bool Flag = CompanyDbcontextSeed.Seed(dBcontext);
+            //if (Flag)
+            //    Console.WriteLine("Data Seed Done ");
+            //else
+            //    Console.WriteLine( "Falied");
+            #endregion
+            #endregion
+            #region Loading raleted Data
+            #region Defualt Nav Property
+            //var Emp01 = dBcontext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (Emp01 is not null)
+            //    Console.WriteLine($"EmpName : {Emp01.Name}");
+            //    Console.WriteLine($"Deptid : {Emp01.DeptId}");
+            //    Console.WriteLine($"DeptName : {Emp01.MangedDept?.DeptName}");
+            #endregion
+            #region Eager Loading
+            //var Emp01 = dBcontext.Employees.Include(E=> E.EmployeeDepartment).FirstOrDefault(E => E.Id == 5);
+            //if (Emp01 is not null)
+            //    Console.WriteLine($"EmpName : {Emp01.Name}");
+            //Console.WriteLine($"Deptid : {Emp01.DeptId}");
+            //Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");
             #endregion
             #endregion
             #endregion

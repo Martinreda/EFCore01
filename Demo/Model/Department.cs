@@ -24,7 +24,7 @@ namespace Demo.Model
         public int? MangerId { get; set; }
 
         //One to many 
-        [InverseProperty(nameof(Employee.department))] // دي بتخلي تفهم انها تقصد العلاقه دي 
+        [InverseProperty(nameof(Employee.EmployeeDepartment))] // دي بتخلي تفهم انها تقصد العلاقه دي 
         public ICollection<Employee> employees { get; set; } = new HashSet<Employee>();
 
 

@@ -35,7 +35,7 @@ namespace Demo.ModelsCofigruiton
 
             // one to Many 
             builder
-               .HasOne(E => E.department)
+               .HasOne(E => E.EmployeeDepartment)
                .WithMany(D => D.employees)
                .HasForeignKey(E => E.DeptId)
                .OnDelete(DeleteBehavior.Restrict);

@@ -41,7 +41,7 @@ namespace Demo.Model
 
          
         [InverseProperty(nameof(Department.employees))] // Inverse Prop
-        public Department department { get; set; }  // Nav prop
+        public Department EmployeeDepartment { get; set; }  // Nav prop
 
 
     }
