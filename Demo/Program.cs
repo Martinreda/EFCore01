@@ -304,21 +304,49 @@ namespace Demo
 
             /* Get Department Mangers /*/
 
-            var result = dBcontext.Employees.Join(dBcontext.Departments,
-                E => E.Id,
-                D => D.MangerId,
-                (E, D) => new
-                {
-                    EmpId = E.Id,
-                    EmpName = E.Name,
-                    DeptId = D.DeptId,
-                    DeptNAme = D.DeptName
-                });
-            foreach (var item in result)
-                Console.WriteLine(item);
+            //var result = dBcontext.Employees.Join(dBcontext.Departments,
+            //    E => E.Id,
+            //    D => D.MangerId,
+            //    (E, D) => new
+            //    {
+            //        EmpId = E.Id,
+            //        EmpName = E.Name,
+            //        DeptId = D.DeptId,
+            //        DeptNAme = D.DeptName
+            //    });
+            //foreach (var item in result)
+            //    Console.WriteLine(item);
 
 
             #endregion
+
+            #region Group Join
+            /* Get All Department that has Employees or Not */
+
+            //var result = dBcontext.Departments.GroupJoin(dBcontext.Employees,
+            //    D => D.DeptId,
+            //    E => E.DeparmentId,
+            //    (D, E) => new
+            //    {
+            //        Department = D,
+            //        Employee = E
+            //    });
+            //foreach ( var Dept in result)
+            //{
+            //    Console.WriteLine( $"DEptId  = { Dept.Department.DeptId}---- DeptName {Dept.Department.DeptName}");
+            //    foreach (var Emp in Dept.Employee)
+            //        Console.WriteLine($" EMp Name ={Emp.Name}");
+            //}
+            #endregion
+
+            #region Right Outer join 
+
+            #endregion
+
+            #region Cross join 
+
+            #endregion
+
             #endregion
         }
     }
