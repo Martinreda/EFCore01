@@ -36,8 +36,8 @@ namespace Demo.Model
         // One to many 
 
         //FK 
-        [ForeignKey(nameof(DeptId))]
-        public int DeptId { get; set; }
+        [ForeignKey(nameof(DeparmentId))]
+        public int DeparmentId { get; set; }
 
          
         [InverseProperty(nameof(Department.employees))] // Inverse Prop

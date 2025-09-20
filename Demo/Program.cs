@@ -281,6 +281,44 @@ namespace Demo
             //    Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");//Realted;
             //}
             #endregion
+
+            #region Inner Join
+            // From LinQ and must have all realted Data
+            //Get dept that has Employees
+            //Inner Join
+
+            //var result = dBcontext.Departments
+            //    .Join(dBcontext.Employees
+            //    , D => D.DeptId,
+            //      E => E.DeparmentId,
+            //      (D, E) => new
+            //      {
+            //          EmpId = E.Id,
+            //          EmpName = E.Name,
+            //          DeptId = D.DeptId,
+            //          DeptNAme = D.DeptName
+            //      }); 
+            //foreach (var item in result )
+            //    Console.WriteLine( item);
+
+
+            /* Get Department Mangers /*/
+
+            var result = dBcontext.Employees.Join(dBcontext.Departments,
+                E => E.Id,
+                D => D.MangerId,
+                (E, D) => new
+                {
+                    EmpId = E.Id,
+                    EmpName = E.Name,
+                    DeptId = D.DeptId,
+                    DeptNAme = D.DeptName
+                });
+            foreach (var item in result)
+                Console.WriteLine(item);
+
+
+            #endregion
             #endregion
         }
     }
