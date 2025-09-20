@@ -1,6 +1,8 @@
 ﻿using Demo.Context;
 using Demo.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
+[assembly : InternalsVisibleTo ("DynamicProxyGenAssembly2")]
 
 namespace Demo
 {
@@ -10,7 +12,7 @@ namespace Demo
         {
             using CompanyDBcontext dBcontext = new CompanyDBcontext();
 
-            #region Session01
+            #region Session 01
             #region Entity Framework Core
 
             /*
@@ -249,7 +251,7 @@ namespace Demo
             //// Referance Method allow with one Nav prop
             //Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");
 
-            #endregion 
+            #endregion
             #region Ex02 Collection
             //var Emp01 = dBcontext.Departments.FirstOrDefault(E => E.DeptId == 3);
             //if (Emp01 is not null)
@@ -262,6 +264,22 @@ namespace Demo
             #endregion
 
             #endregion
+            #endregion
+            #endregion
+
+            #region Session 04 
+            #region Lazy Loading 
+            // Download Package EF Core.Proxies
+            // Congigure in Dbcontext 
+            // All Nav Prop Virtal and all Classes Public
+
+            //var Emp01 = dBcontext.Employees.FirstOrDefault(E => E.Id == 5);
+            //if (Emp01 is not null)
+            //{
+            //    Console.WriteLine($"EmployeeName : {Emp01.Name}");
+            //    Console.WriteLine($"DeptId : {Emp01.DeptId}");
+            //    Console.WriteLine($"DeptName : {Emp01.EmployeeDepartment.DeptName}");//Realted;
+            //}
             #endregion
             #endregion
         }

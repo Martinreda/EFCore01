@@ -28,7 +28,7 @@ namespace Demo.Model
         //public int MangerDeptId { get; set; }
 
         [InverseProperty(nameof(Department.Manger))]
-        public Department MangedDept { get; set; } // Naav Prop 
+        public virtual Department MangedDept { get; set; } // Naav Prop 
 
         //one to one t -- t
         public Address EmpAddress { get; set; }
@@ -41,7 +41,7 @@ namespace Demo.Model
 
          
         [InverseProperty(nameof(Department.employees))] // Inverse Prop
-        public Department EmployeeDepartment { get; set; }  // Nav prop
+        public virtual Department EmployeeDepartment { get; set; }  // Nav prop
 
 
     }

@@ -23,7 +23,9 @@ namespace Demo.Context
         {
             // Conect between console App => Database
             // connection string => serverName , Database Name
-            optionsBuilder.UseSqlServer("Server = . ; Database = MyCompany02; Trusted_Connection = true ; TrustServerCertificate = true");
+            optionsBuilder.UseSqlServer("Server = . ; Database = MyCompany02; Trusted_Connection = true ; TrustServerCertificate = true")
+                .UseLazyLoadingProxies() ;
+
 
         }
 

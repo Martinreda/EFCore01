@@ -11,6 +11,6 @@ namespace Demo.Model
         public int Id { get; set; }
         public string Name { get; set; }
         // Nav Many
-        public ICollection<Student> Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

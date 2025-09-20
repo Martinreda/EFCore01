@@ -12,7 +12,7 @@ namespace Demo.ModelsCofigruiton
 {
     // Fluent Apis Inside Another Class 
     //You must Implement Built-in Interface EntityTypeConfigriution<>
-    internal class EmployeeConfigurition : IEntityTypeConfiguration<Employee>
+    public class EmployeeConfigurition : IEntityTypeConfiguration<Employee>
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {

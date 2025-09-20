@@ -19,13 +19,13 @@ namespace Demo.Model
         //Nav prop
         //    public Employee? Manger { get; set; } // ? Partial RElationship
         [InverseProperty(nameof(Employee.MangedDept))]
-        public Employee Manger { get; set; } // Naav Prop 
+        public virtual Employee Manger { get; set; } // Naav Prop 
         //FK Here
         public int? MangerId { get; set; }
 
         //One to many 
         [InverseProperty(nameof(Employee.EmployeeDepartment))] // دي بتخلي تفهم انها تقصد العلاقه دي 
-        public ICollection<Employee> employees { get; set; } = new HashSet<Employee>();
+        public virtual ICollection<Employee> employees { get; set; } = new HashSet<Employee>();
 
 
     }
