@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InheirtanceMapping.Migrations
 {
     [DbContext(typeof(CompanyRouteG02DbContext))]
-    [Migration("20250921004525_FluentApi")]
-    partial class FluentApi
+    [Migration("20250921005510_TPT")]
+    partial class TPT
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,11 +39,6 @@ namespace InheirtanceMapping.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeType")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -51,9 +46,7 @@ namespace InheirtanceMapping.Migrations
 
                     b.ToTable("employees");
 
-                    b.HasDiscriminator<string>("EmployeeType").HasValue("Employee");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("InheirtanceMapping.Models.FullTimeEmployee", b =>
@@ -66,7 +59,7 @@ namespace InheirtanceMapping.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasDiscriminator().HasValue("FTE");
+                    b.ToTable("FullTimeEmployees", (string)null);
                 });
 
             modelBuilder.Entity("InheirtanceMapping.Models.PartTimeEmployee", b =>
@@ -79,7 +72,25 @@ namespace InheirtanceMapping.Migrations
                     b.Property<decimal>("HourRate")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasDiscriminator().HasValue("PTE");
+                    b.ToTable("PartTimeEmployees", (string)null);
+                });
+
+            modelBuilder.Entity("InheirtanceMapping.Models.FullTimeEmployee", b =>
+                {
+                    b.HasOne("InheirtanceMapping.Models.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("InheirtanceMapping.Models.FullTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("InheirtanceMapping.Models.PartTimeEmployee", b =>
+                {
+                    b.HasOne("InheirtanceMapping.Models.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("InheirtanceMapping.Models.PartTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

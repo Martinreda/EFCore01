@@ -19,15 +19,22 @@ namespace InheirtanceMapping.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FullTimeEmployee>()
-                .HasBaseType<Employee>();
-            modelBuilder.Entity<PartTimeEmployee>()
-                .HasBaseType<Employee>();
+            #region TPH 
+            //modelBuilder.Entity<FullTimeEmployee>()
+            //    .HasBaseType<Employee>();
+            //modelBuilder.Entity<PartTimeEmployee>()
+            //    .HasBaseType<Employee>();
 
-            modelBuilder.Entity<Employee>()
-                .HasDiscriminator<string>("EmployeeType")
-                .HasValue<FullTimeEmployee>("FTE")
-                .HasValue<PartTimeEmployee>("PTE");
+            //modelBuilder.Entity<Employee>()
+            //    .HasDiscriminator<string>("EmployeeType")
+            //    .HasValue<FullTimeEmployee>("FTE")
+            //    .HasValue<PartTimeEmployee>("PTE");
+            #endregion
+
+            #region TPT 
+            modelBuilder.Entity<FullTimeEmployee>().ToTable("FullTimeEmployees");
+            modelBuilder.Entity<PartTimeEmployee>().ToTable("PartTimeEmployees");
+            #endregion
         }
 
         #region 1- Table Per Concrete Type TPCT
@@ -36,9 +43,15 @@ namespace InheirtanceMapping.Context
         #endregion
 
         #region 2- Table Per Heirarcy TPH
-        public DbSet<Employee> employees { get; set; }
+        //public DbSet<Employee> employees { get; set; }
         //public DbSet<FullTimeEmployee> fullTimeEmployees { get; set; }
         //public DbSet<PartTimeEmployee> partTimeEmployees { get; set; }
+        #endregion
+
+        #region 3- Table Per Type [TPT]
+        public DbSet<Employee> employees { get; set; }
+        public DbSet<FullTimeEmployee> fullTimeEmployees { get; set; }
+        public DbSet<PartTimeEmployee> partTimeEmployees { get; set; }
         #endregion
     }
 }

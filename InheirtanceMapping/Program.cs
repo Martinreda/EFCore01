@@ -38,6 +38,30 @@ namespace InheirtanceMapping
             #endregion
 
             #region 2- Table Per Heirarchy [TPH]
+            //FullTimeEmployee ftEmp = new FullTimeEmployee()
+            //{
+            //    Name = "Martin",
+            //    Age = 26,
+            //    Salary = 47000,
+            //    Address = "Cairo"
+            //};
+
+            //PartTimeEmployee ptEmp = new PartTimeEmployee()
+            //{
+            //    Name = "reda",
+            //    Age = 51,
+            //    HourRate = 50,
+            //    Address = "Viena",
+            //    CountOfHours = 150
+            //};
+            //dBContext.Add(ftEmp);
+            //dBContext.Add(ptEmp);
+            //dBContext.SaveChanges();
+
+            #endregion
+
+            #region 3- Table Per Type [TPT]
+
             FullTimeEmployee ftEmp = new FullTimeEmployee()
             {
                 Name = "Martin",
@@ -45,7 +69,7 @@ namespace InheirtanceMapping
                 Salary = 47000,
                 Address = "Cairo"
             };
-             
+
             PartTimeEmployee ptEmp = new PartTimeEmployee()
             {
                 Name = "reda",
@@ -57,7 +81,6 @@ namespace InheirtanceMapping
             dBContext.Add(ftEmp);
             dBContext.Add(ptEmp);
             dBContext.SaveChanges();
-            ;
             #endregion
         }
     }
