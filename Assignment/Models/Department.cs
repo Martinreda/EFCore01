@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Assignment.Models
 {
     internal class Department
+
     {
         //Mapping By convention
         public int Id { get; set; }

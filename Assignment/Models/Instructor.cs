@@ -16,13 +16,10 @@ namespace Assignment.Models
         public string Address { get; set; }
         public double HourRate { get; set; }
 
-        //relations 
-        [InverseProperty(nameof (Department.manger))]
+        [InverseProperty(nameof(Department.manger))]
         public Department MangeDepartment { get; set; }
-        
 
 
-       
         [ForeignKey(nameof(WorkForDept))]
         public int? DepartmentId { get; set; }
 

@@ -26,6 +26,18 @@ namespace Assignment.Context
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             //base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Stud_Course>()
+       .HasKey(sc => new { sc.Stud_Id, sc.Course_Id }); // Composite Key
+
+            modelBuilder.Entity<Stud_Course>()
+                .HasOne(sc => sc.Student)
+                .WithMany(s => s.stud_Courses)
+                .HasForeignKey(sc => sc.Stud_Id);
+
+            modelBuilder.Entity<Stud_Course>()
+                .HasOne(sc => sc.Course)
+                .WithMany(c => c.stud_Courses)
+                .HasForeignKey(sc => sc.Course_Id);
         }
         public DbSet<Course> courses { get; set; }
        public DbSet<Course_Inst> course_Insts { get; set; }

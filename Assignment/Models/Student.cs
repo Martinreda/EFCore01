@@ -17,9 +17,9 @@ namespace Assignment.Models
         public string Address { get; set; }
         public int Age { get; set; }
         public int DepId { get; set; }
-
+        //relation 
         //Relations 
-        [ForeignKey (nameof (Department))]
+        [ForeignKey(nameof(Department))]
         public int? DepartmentId { get; set; } // FK
         public Department Department { get; set; }
 
