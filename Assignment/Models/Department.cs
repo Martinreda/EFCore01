@@ -13,9 +13,8 @@ namespace Assignment.Models
         //Mapping By convention
         public int Id { get; set; }
         
-        public string Name { get; set; }
-        public int inst_Id { get; set; }
-        public string HiringDate { get; set; }
+        public string? Name { get; set; }
+        public string? HiringDate { get; set; }
 
         //relation 
         public ICollection<Student> students { get; set; } = new HashSet<Student>();

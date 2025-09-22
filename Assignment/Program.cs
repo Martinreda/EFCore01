@@ -52,15 +52,24 @@ namespace Assignment
             #region Manual Data_Seeding 
 
 
-            List<Student> students = new List<Student>()
-            {
-                new Student () {FName="Martin", LName = "reda" , Address = "Maghagha", Age = 26 },
-                new Student () {FName="Pola", LName = "hani" , Address = "minya", Age = 19},
-                new Student () {FName="Mena", LName = "bassem" , Address = "giza", Age = 24},
-                new Student () {FName="OKie", LName = "pola" , Address = "cairo", Age = 27},
-            };
-            dbcontext.AddRange(students);
-            dbcontext.SaveChanges();
+            //List<Student> students = new List<Student>()
+            //{
+            //    new Student () {FName="Martin", LName = "reda" , Address = "Maghagha", Age = 26 },
+            //    new Student () {FName="Pola", LName = "hani" , Address = "minya", Age = 19},
+            //    new Student () {FName="Mena", LName = "bassem" , Address = "giza", Age = 24},
+            //    new Student () {FName="OKie", LName = "pola" , Address = "cairo", Age = 27},
+            //};
+            //dbcontext.AddRange(students);
+            //dbcontext.SaveChanges();
+            #endregion
+
+            #region Dymanic Data Seeding
+            bool Flag = ITIDbContextSeed.Seed(dbcontext);
+            if (Flag)
+                Console.WriteLine("Data is Done");
+            else
+                Console.WriteLine("You are Stuipet");
+
             #endregion
         }
     }
